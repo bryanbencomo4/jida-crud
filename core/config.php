@@ -8,6 +8,11 @@
 	define('USER','root');
     define('PASSWORD','');
     
+    // MAILER
+    // ==========================================
+    define('MAILER_ENABLED', TRUE);
+    define('MAIL_FROM', 'bjbh415@gmail.com');
+
     // OTHERS
     // ==========================================
     define('URL_BASE','http://localhost/jida-crud');

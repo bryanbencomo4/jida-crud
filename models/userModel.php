@@ -14,7 +14,19 @@
 			$values = array($this->name, $this->email, $this->phoneNumber);
 
 			$this->db->prepare($statement);
-			return $this->db->execute($values);
+			$out = $this->db->execute($values);
+
+			if ($out && MAILER_ENABLED) {
+				$from = MAIL_FROM;
+				$to = $this->email;
+				$subject = "JIDA CRUD TEAM";
+				$message = "¡Enhorabuena, tu registro en JIDA CRUD se ha realizado exitosamente!";
+				$headers = "From:" . $from;
+
+				mail($to,$subject,$message, $headers);
+			}
+
+			return $out;
 		}
 
 		public function getOne() {
